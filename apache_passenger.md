@@ -144,6 +144,15 @@ rake secret
 rake db:setup RAILS_ENV="production"
 ```
 
+레일즈를 precompile한다. 권한 설정을 먼저 해줘야된다.
+
+~~~bash
+rake assets:precompile RAILS_ENV=production
+sudo chown ubuntu #{폴더이름}
+~~~
+
+
+
 ## 아파치와 패신저 설정
 
 ```shell
