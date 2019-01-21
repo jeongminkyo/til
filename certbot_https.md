@@ -1,8 +1,8 @@
 ### certbot을 이용한 https 적용하기
 
-------------------------
 
-#####Let's Encrypt
+
+##### Let's Encrypt
 
 [Let’s Encrypt](https://letsencrypt.org/)는 Certificate Authority (CA). 즉, 인증기관으로 보다 쉬운 방법과 무료로 TLS/SSL 인증서를 발급해서 HTTPS 통신을 가능하게 해주는 서비스 기관이다. HTTPS를 사용하기 위해 SSL을 구매해야 하는 부분이 HTTPS 보급에 방해된다고 생각해서 SSL을 무료로 제공해서 HTTPS를 보급하기 위해 작년 말에 만들어졌다.
 
@@ -78,6 +78,14 @@ sudo certbot --nginx -d example.com -d www.example.com
 ~~~shell
 sudo certbot renew --dry-run
 ~~~
+
+인증서 만료날짜를 보고 싶거나 몇일 남았는지 알 수 있는 명령어도 있다.
+
+```shell
+sudo certbot certificates
+```
+
+
 
 Ubuntu의 경우 `/etc/cron.d/`에 보면 certbot이 생성되어 있다.
 
