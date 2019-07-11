@@ -108,10 +108,10 @@ wordpress가 설치되고 나면, 해당 theme위치에 홈페이지 소스코�
 RETRY_COUNT=30 # for couchbase rest api healthcheck
 DEFAULT_LOCATION=$PWD
 
-docker-compose up -d 
+docker-compose up -d
 for ((i=0; i<$RETRY_COUNT; i++))
 do
-    if [ -d "$DEFAULT_LOCATION/cashslide-homepage" ]; then
+    if [ -d "$DEFAULT_LOCATION/cashslide-homepage/wp-content/themes" ]; then
         cd $PWD/cashslide-homepage/wp-content/themes
         break
     else
@@ -124,7 +124,7 @@ git clone git@github.com:nbtpartners/cashslide-homepage.git
 
 for ((i=0; i<$RETRY_COUNT; i++))
 do
-    if [ -d "$DEFAULT_LOCATION/nbt-homepage" ]; then
+    if [ -d "$DEFAULT_LOCATION/nbt-homepage/wp-content/themes" ]; then
         cd $DEFAULT_LOCATION/nbt-homepage/wp-content/themes
         break
     else
@@ -144,5 +144,38 @@ Docker-compose 이후, 아직 컨테이너 설치가 되지 않은 시점에서 
 
 ### wordpress 실행
 
+```bash
+./init.sh
+```
+
+![wordpress1](./image/docker-wordpress-1.png)
+
+해당 이미지를 pull 한 후, 테마를 설치한다.
 
 
+
+![docker-wordpress-2](./image/docker-wordpress-2.png)
+
+Localhost:8000 접속하면, wordpress 설정 페이지가 나온다.
+
+
+
+![docker-wordpress-3](./image/docker-wordpress-3.png)
+
+계정 설정을 한다.
+
+
+
+![docker-wordpress-4](./image/docker-wordpress-4.png)
+
+설정 완료.
+
+
+
+![docker-wordpress-5](./image/docker-wordpress-5.png)
+
+테마디자인에 들어가서 테마에 들어가면 clone했던 테마를 선택 적용하면 완료.
+
+
+
+![docker-wordpress-6](./image/docker-wordpress-6.png)
